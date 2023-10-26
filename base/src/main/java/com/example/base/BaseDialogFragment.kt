@@ -13,6 +13,9 @@ abstract class BaseDialogFragment<VB : ViewDataBinding>(private val layoutId: In
     private var _binding: VB? = null
     protected val binding get() = _binding!!
 
+    open fun width(): Int = ViewGroup.LayoutParams.MATCH_PARENT
+    open fun height(): Int = ViewGroup.LayoutParams.WRAP_CONTENT
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,6 +29,12 @@ abstract class BaseDialogFragment<VB : ViewDataBinding>(private val layoutId: In
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = viewLifecycleOwner
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        dialog?.window?.setLayout(width(), height())
     }
 
     override fun onDestroyView() {
