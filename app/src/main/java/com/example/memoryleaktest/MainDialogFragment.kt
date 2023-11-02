@@ -21,4 +21,5 @@ class MainDialogFragment : BaseDialogFragment<DialogMainBinding>(R.layout.dialog
         super.onViewCreated(view, savedInstanceState)
 
     }
+
 }

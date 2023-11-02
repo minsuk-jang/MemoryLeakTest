@@ -53,5 +53,5 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
 
-    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.12")
+    //debugImplementation("com.squareup.leakcanary:leakcanary-android:2.12")
 }
