@@ -7,7 +7,18 @@ import android.view.View
 import com.example.base.BaseDialogFragment
 import com.example.memoryleaktest.databinding.DialogMainBinding
 
+val TAG = "timber"
+
 class MainDialogFragment : BaseDialogFragment<DialogMainBinding>(R.layout.dialog_main) {
+
+    interface OnMainDialogFragmentListener {
+        fun dismiss()
+    }
+
+    private var _listener: OnMainDialogFragmentListener? = null
+    fun setOnMainDialogFragmentListener(listener: OnMainDialogFragmentListener?) {
+        _listener = listener
+    }
 
     override fun width(): Int {
         return 500
@@ -22,4 +33,8 @@ class MainDialogFragment : BaseDialogFragment<DialogMainBinding>(R.layout.dialog
 
     }
 
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        _listener?.dismiss()
+    }
 }
