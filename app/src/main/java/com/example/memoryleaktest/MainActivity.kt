@@ -15,10 +15,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     }
 
     private fun bindButton() {
-        val dialog  = MainDialogFragment().apply {
+        val dialog  =  MainDialogFragment().apply {
             setOnMainDialogFragmentListener(object : MainDialogFragment.OnMainDialogFragmentListener{
                 override fun dismiss() {
-                    binding.button1.setOnClickListener(null)
                 }
             })
         }
